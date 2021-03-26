@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Navbar from 'react-bootstrap/Navbar'
 // import "../../index.css";
 
 // Depending on the current path, this component sets the "active" class on the appropriate navigation link item
-function Navbar() {
+function Nav() {
   return (
-    <nav className="navbar">
+    <Navbar bg="primary" variant="dark">
+    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+    <Nav className="mr-auto">
       <Link className="navbar__brand" to="/">
         Google Books Search
       </Link>
@@ -17,8 +20,22 @@ function Navbar() {
           Search
         </Link>
       </div>
-    </nav>
+    </Nav>
+    </Navbar>
   );
 }
 
-export default Navbar;
+export default Nav;
+
+// {/* <Navbar bg="primary" variant="dark">
+// <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+// <Nav className="mr-auto">
+//   <Nav.Link href="#home">Home</Nav.Link>
+//   <Nav.Link href="#features">Features</Nav.Link>
+//   <Nav.Link href="#pricing">Pricing</Nav.Link>
+// </Nav>
+// <Form inline>
+//   <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+//   <Button variant="outline-light">Search</Button>
+// </Form>
+// </Navbar> */}

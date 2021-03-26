@@ -1,12 +1,13 @@
+/* eslint-disable no-template-curly-in-string */
 /* eslint-disable import/no-anonymous-default-export */
 import axios from "axios";
 
-export default {
+const API = {
 
   // Gets the books from Google
   getBooksGoo: function (input) {
     console.log("input: ", input)
-    return axios.get("/api/books/google/" + input);
+    return axios.get("https://www.googleapis.com/books/v1/volumes?q=${input}");
   },
   // Gets all books
   getBooks: function () {
@@ -22,3 +23,5 @@ export default {
     return axios.post("/api/books", bookData);
   }
 };
+
+export default API;

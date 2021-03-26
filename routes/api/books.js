@@ -8,7 +8,8 @@ router.route("/")
 
 
 // Matches with "/api/books/google/:input"
-router.route("/google/:input")
-  .get(booksController.getGoogleBooks);
+router.route("/:id")
+  .get(booksController.findById)
+  .delete(booksController.remove);
 
 module.exports = router;
