@@ -1,41 +1,24 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import Navbar from 'react-bootstrap/Navbar'
-// import "../../index.css";
+// import "./style.css";
+import Navbar from "react-bootstrap/Navbar";
+import Nav from "react-bootstrap/Nav";
 
-// Depending on the current path, this component sets the "active" class on the appropriate navigation link item
-function Nav() {
+function NavPanel() {
   return (
-    <Navbar bg="primary" variant="dark">
-    <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-    <Nav className="mr-auto">
-      <Link className="navbar__brand" to="/">
-        Google Books Search
-      </Link>
-      <div className="navbar__nav">
-        <Link to="/saved" className="navbar__nav--item">
-          Saved
-        </Link>
-        <Link to="/search" className="navbar__nav--item">
-          Search
-        </Link>
-      </div>
-    </Nav>
+
+    <Navbar variant="dark" bg="primary">
+      <Navbar.Brand href="/">Google Books Search</Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse variant="light" id="basic-navbar-nav">
+        <Nav className="mr-auto">
+          <Nav.Link href="/">Search</Nav.Link>
+          <Nav.Link href="/saved">Saved</Nav.Link>
+        </Nav>
+      </Navbar.Collapse>
     </Navbar>
   );
 }
 
-export default Nav;
+export default NavPanel;
 
-// {/* <Navbar bg="primary" variant="dark">
-// <Navbar.Brand href="#home">Navbar</Navbar.Brand>
-// <Nav className="mr-auto">
-//   <Nav.Link href="#home">Home</Nav.Link>
-//   <Nav.Link href="#features">Features</Nav.Link>
-//   <Nav.Link href="#pricing">Pricing</Nav.Link>
-// </Nav>
-// <Form inline>
-//   <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-//   <Button variant="outline-light">Search</Button>
-// </Form>
-// </Navbar> */}
+
