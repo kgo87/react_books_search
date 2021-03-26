@@ -22,7 +22,7 @@ class SearchBooks extends Component {
 	handleFormSubmit = (event) => {
 		event.preventDefault();
 		// On click, it connects to the google book api with the search value
-		API.getGoogleSearchBooks(this.state.search)
+		API.getBooksGoo(this.state.search)
 			.then((res) => {
 				if (res.data.items === "error") {
 					throw new Error(res.data.items);
@@ -59,29 +59,28 @@ class SearchBooks extends Component {
 			.then(this.setState({ message: alert("Your book has been saved!") }))
 			.catch((err) => console.log(err));
 	};
-	render() {
-		return (
-			<Container fluid>
-				<Jumbotron>
-					<h1 className="text-white font-weight-bold">Find your favorite books with the GoogleBook API!</h1>
-				</Jumbotron>
-				<Container>
-					<Row>
-						<Col size="12">
-							<Form
-								handleFormSubmit={this.handleFormSubmit}
-								handleInputChange={this.handleInputChange}
-							/>
-						</Col>
-					</Row>
-				</Container>
-				<br />
-				<Container>
-					<BookCard books={this.state.books} handleSavedButton={this.handleSavedButton} />
-				</Container>
-			</Container>
-		);
-	}
+  render() {
+    return (
+
+      <div>
+        <Jumbotron />
+        <Container>
+          <Row>
+            <Col size="12">
+              <Form
+                handleFormSubmit={this.handleFormSubmit}
+                handleInputChange={this.handleInputChange}
+              />
+            </Col>
+          </Row>
+        </Container>
+        <br />
+        <Container>
+          <BookCard books={this.state.books} handleSavedButton={this.handleSavedButton} />
+        </Container>
+      </div>
+    );
+  }
 }
 
 export default SearchBooks;
