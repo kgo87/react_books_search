@@ -35,9 +35,11 @@ https://g-books-search-kat.herokuapp.com/
 - Express
 
 ## 5. Finished product<a name="final"></a>
-The final HTML page looks like this:
-![Screenshot](./public/assets/media/final1.png)
-![Screenshot](./public/assets/media/final2.png)
+The final Search page looks like this:
+![Screenshot](./client/public/assets/media/final1.png)
+The final page for the Saved books looks like this:
+![Screenshot](./client/public/assets/media/final2.png)
+
 
 ## 6. Contact details<a name="contact"></a>
 If you have any questions, contact me via email: 
