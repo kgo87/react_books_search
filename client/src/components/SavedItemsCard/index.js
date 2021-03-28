@@ -1,57 +1,45 @@
 import React from "react";
-import {Row, Col} from "../Grid"
+// import {Row, Col} from "../Grid"
+import { Card, Button, Row, Col } from "react-bootstrap";
 
 const SavedItemsCard = props => {
-    return (props.savedBooks.length === 0) ? (
-        <div className="card">
-            <div className="card-body player">
-                <div className="article">
-                    <h3>Books that You Have Saved</h3>
+  return (
+    <div className="container">
+      <h3>Saved Books</h3>
+      {props.savedBooks.map((savedbook) => {
+        return (
+          <div>
+            <div className="card  mb-2">
+              <div className="card-body">
+
+                <div className="row">
+
+                  <div className='col-8'>
+                    <h4 className="">{savedbook.title}</h4>
+                    <h5 className="">{savedbook.authors}</h5>
+                  </div>
+                  <div className='col-4  justify-content-end'>
+                    <a href={savedbook.link} target="_blank" rel="noreferrer"> {" "} <button className=" btn btn-success m-2"> VIEW</button>{" "} </a>
+                    <button className=" btn btn-danger m-2" id={savedbook._id} onClick={() => props.handleDeleteButton(savedbook._id)} > DELETE{" "} </button>
+                  </div>
+
                 </div>
-            </div>
-        </div>
-    ):(
-        <div className="card">
-            <div className="card-body player">
-                <div className="article">
-                    <h3>Books that You Saved</h3>
-                    {props.savedBooks.map(savedbook => {
-                        return (
-                            <li className="saved-list list-group-item">
-                                <Row className="SearchResult" id={savedbook.title + "Card"} key={savedbook._id}>
-                                    <Col size="2" className="bookImage">
-                                        <img src={savedbook.image} alt={savedbook.title} />
-                                    </Col>
-                                    <Col size="1" className="emptyCol"/>
-                                    <Col size="9" className="bookInfo">
-                                        <Row>
-                                            <h2 className="bookTitle">{savedbook.title}</h2>
-                                        </Row>
-                                        <Row>
-                                            <h3 className="bookAuthor">{savedbook.authors}</h3>
-                                        </Row>
-                                        <Row>
-                                            <p className="bookDescription">{savedbook.description}</p>
-                                        </Row>
-                                    </Col>
-                                </Row>
-                                <br></br>
-                                <Row className="buttonDiv ">
-                                    <button className="deleteBook btn btn-danger" id={savedbook._id} onClick={() => props.handleDeleteButton(savedbook._id)}>
-                                        Delete Book
-                                    </button>
-                                    <a href={savedbook.link} target="_blank" rel="noreferrer">
-                                        <button className="viewBook btn btn-success">
-                                            View Book
-                                        </button>
-                                    </a>
-                                </Row>
-                            </li>
-                        );
-                    })}
+
+                <div className="row" id={savedbook.title + "Card"} key={savedbook._id} >
+                  <div className="col-2"> {" "} <img src={savedbook.image} alt={savedbook.title} />{" "} </div>
+                  <div className="col-10 pl-2">
+                    <p className="pr-3">{savedbook.description}</p>
+                  </div>
                 </div>
+
+
+              </div>
             </div>
-        </div>
-    )
-}
+          </div>
+        );
+      })}
+    </div>
+  );
+};
+    
 export default SavedItemsCard

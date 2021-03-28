@@ -7,7 +7,7 @@ const API = {
   // Gets the books from Google
   getBooksGoo: function (input) {
     console.log("input: ", input)
-    return axios.get("https://www.googleapis.com/books/v1/volumes?q=${input}");
+    return axios.get("https://www.googleapis.com/books/v1/volumes?q=" + input);
   },
   // Gets all books
   getBooks: function () {
