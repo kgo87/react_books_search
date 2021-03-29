@@ -9,10 +9,10 @@ const SearchBooks = () => {
   const [search, setSearch] = useState('');
   const [books, setBooks] = useState([]);
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false)
 
   const handleInputChange = e => {
     setSearch(e.target.value);
-    console.log(e.target.value)
   };
 
   const handleSubmit = e => {
@@ -38,6 +38,7 @@ const SearchBooks = () => {
         })
         setBooks(results)
         setSearch("");
+        setLoading(true)
       }
     })
     .catch(err => setError(error));
@@ -70,6 +71,7 @@ const SearchBooks = () => {
         </div>
       </div>
       <div className='container' >
+        {loading && <h3>Search Results</h3>}
         <BookCard books={books} handleSavedButton={handleSavedButton} />
       </div>
     </div>

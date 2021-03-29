@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-// import {Row, Col} from "../Grid"
 import { Card, Button, Col, Row, Modal } from "react-bootstrap";
 
 const BookCard = props => {
@@ -7,7 +6,6 @@ const BookCard = props => {
   
     return (
       <div className="container">
-        <h3>Search Results</h3>
         {props.books.map((book) => {
           return (
             <div className="card mb-3">
